@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Noto Sans KR', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #171717;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a, abbr, acronym, address, big, blockquote, body, button, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, ins, kbd, label, legend, li, object, ol, p, pre, q, samp, select, small, span, strike, strong, sub, sup, table, tbody, td, textarea, tfoot, th, thead, tr, tt, ul, var {
+  font-family: 'Noto Sans KR', sans-serif, "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", 돋움, Dotum, sans-serif;
+}
+
+.filter-red {
+  filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(294deg) brightness(105%) contrast(100%);
+}
+
+.filter-white {
+  filter: invert(100%) sepia(57%) saturate(2%) hue-rotate(255deg) brightness(106%) contrast(100%);
 }
