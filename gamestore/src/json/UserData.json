@@ -1,0 +1,74 @@
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "passwordOk": "admin",
+    "email": "admin@gamestore.com",
+    "nickname": "관리자",
+    "exp": 99999,
+    "point": 99999,
+    "구매": [
+      {
+        "주문번호": "관리용",
+        "상품명": "GTA5",
+        "결제수단": "카드결제",
+        "결제금액": 0,
+        "주문일자": "0000-00-00 00:00:00",
+        "결제상태": "결제완료",
+        "key": 123456789
+      }
+    ],
+    "리뷰": [
+      {
+        "게임명": "GTA5",
+        "commentId": "commentTestId"
+      },
+      {
+        "게임명": "메이플스토리",
+        "commentId": "commentTestId2"
+      }
+    ],
+    "쿠폰": [ 
+      {
+        "쿠폰명": "welcome2022",
+        "사용": false
+      },
+      {
+        "쿠폰명": "summer2022",
+        "사용": false
+      }
+    ],
+    "좋아요": [ "commentTestId" ]
+  },
+  {
+    "username": "test",
+    "password": "test",
+    "passwordOk": "test",
+    "email": "test@gamestore.com",
+    "nickname": "관리자2",
+    "exp": 99999,
+    "point": 99999,
+    "구매": [],
+    "리뷰": [],
+    "쿠폰": [
+      {
+        "쿠폰명": "welcome2022",
+        "사용": false
+      }
+    ],
+    "좋아요": []
+  },
+  {
+    "username": "temp",
+    "password": "temp",
+    "passwordOk": "temp",
+    "email": "temp",
+    "nickname": "temp",
+    "exp": 0,
+    "point": 0,
+    "구매": [],
+    "리뷰": [],
+    "쿠폰": [],
+    "좋아요": []
+  }
+]
