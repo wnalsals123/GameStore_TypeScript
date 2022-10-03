@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from './store'
+import type { RootState } from '../store'
 
 // Define a type for the slice state
 interface cartState {
@@ -11,7 +11,7 @@ const initialState: cartState = {
   value: 0
 }
 
-export const counterSlice = createSlice({
+export const cartSlice = createSlice({
   name: 'cart',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
@@ -20,14 +20,15 @@ export const counterSlice = createSlice({
       state.value += 1
     },
     decrement: state => {
+      if(state.value < 1) return
       state.value -= 1
     }
   }
 })
 
-export const { increment, decrement } = counterSlice.actions
+export const { increment, decrement } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.cart.value
+export const cart = (state: RootState) => state.cart.value
 
-export default counterSlice.reducer
+export default cartSlice.reducer

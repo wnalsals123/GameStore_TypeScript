@@ -1,16 +1,16 @@
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { increment, decrement } from '../redux/cartSlice';
+import Header from "./header/Header";
 
 function App() {
-  const count  = useAppSelector(state => state.cart.value)
-  const dispatch = useAppDispatch()
-
   return (
-    <div className="text-white w-fit">
-      <span className="px-2">{count}</span>
-      <button className="border-2 border-white" onClick={()=>{ dispatch(increment())}}>더하기</button>
-      <button className="border-2 border-white" onClick={()=>{ dispatch(decrement())}}>빼기</button>
+    <div className='relactive'>
+    <div className='sticky top-0 z-40 w-full shadow-xl shadow-neutral-900'>
+      <Header></Header>
+      {/* <SideBar></SideBar> */}
     </div>
+    {/* <GameFlex></GameFlex> */}
+    {/* <Outlet></Outlet> */}
+    {/* <PopDown></PopDown> */}
+  </div>
   );
 }
 

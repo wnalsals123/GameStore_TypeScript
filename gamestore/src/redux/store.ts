@@ -1,9 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cartSlice from './cartSlice'
+import cartSlice from './state/cart'
+import isSideOpenSlice from './state/isSideOpen'
+import isAddCartSlice from './state/isAddCart'
+import isLoginSlice from './state/isLogin'
+import categorySlice from './state/category'
+import loadingSlice from './state/loading'
 
 export const store = configureStore({
   reducer: {
-    cart: cartSlice
+    cart: cartSlice,
+    isSideOpen: isSideOpenSlice,
+    isAddCart: isAddCartSlice,
+    isLogin: isLoginSlice,
+    category: categorySlice,
+    loading: loadingSlice
   }
 })
 
