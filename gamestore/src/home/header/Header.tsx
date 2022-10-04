@@ -2,11 +2,13 @@
 // import Dropdown from "../../function/DropDown";
 // import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setisSideOpen } from "../../redux/state/isSideOpen";
 
 function Header() {
   const cartCount = useAppSelector(state => state.cart.value)
   const isSideOpen = useAppSelector(state => state.isSideOpen.value)
+  const dispatch = useAppDispatch()
   // const navigate = useNavigate()
   // const location = useLocation()
 
@@ -42,7 +44,7 @@ function Header() {
 
       <div className="relative mx-auto max-w-screen-2xl 3xl:max-w-[116rem]">
 
-        <button className="absolute inline-block mr-5 align-middle bg-no-repeat bg-cover md:hidden top-2 left-2 2xl:left-0 w-7 md:w-8 h-7 md:h-8 bg-menu-btn" onClick={() => { console.log(isSideOpen) }}></button>
+        <button className="absolute inline-block mr-5 align-middle bg-no-repeat bg-cover md:hidden top-2 left-2 2xl:left-0 w-7 md:w-8 h-7 md:h-8 bg-menu-btn" onClick={() => { dispatch(setisSideOpen(!isSideOpen)) }}></button>
 
         <div className="inline-block w-full ml-0 text-center md:w-fit md:text-left">
           <a className='inline-flex items-center align-middle' href='/'>
