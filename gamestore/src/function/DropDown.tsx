@@ -1,5 +1,17 @@
-const DropDown = () => {
-
+interface IProps {
+  visble: boolean,
+  children: React.ReactNode
 }
 
-export default DropDown;
+/* 드롭다운 메뉴 */
+const Dropdown = (props: IProps) => {
+  const { visble, children } = props
+
+  return (
+    <div>
+      {visble && children}
+    </div>
+  )
+};
+
+export default Dropdown;

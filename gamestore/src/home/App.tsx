@@ -1,4 +1,5 @@
 import Header from "./header/Header";
+import GameFlex from "./main/GameFlex";
 import SideBar from "./side/SideBar";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
       <Header></Header>
       <SideBar></SideBar>
     </div>
-    {/* <GameFlex></GameFlex> */}
+    <GameFlex></GameFlex>
     {/* <Outlet></Outlet> */}
     {/* <PopDown></PopDown> */}
   </div>

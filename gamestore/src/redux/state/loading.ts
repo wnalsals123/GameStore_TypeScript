@@ -16,13 +16,13 @@ export const loadingSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setisAddCart: (state, action: PayloadAction<string>) => {
+    setLoading: (state, action: PayloadAction<string>) => {
       state.value = action.payload
     }
   }
 })
 
-export const { setisAddCart } = loadingSlice.actions
+export const { setLoading } = loadingSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const loading = (state: RootState) => state.loading.value

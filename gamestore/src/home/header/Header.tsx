@@ -3,9 +3,12 @@
 // import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { setCategory } from "../../redux/state/category";
 import { setisSideOpen } from "../../redux/state/isSideOpen";
+import { setLoading } from "../../redux/state/loading";
 
 function Header() {
+  const category = useAppSelector(state => state.category.value)
   const cartCount = useAppSelector(state => state.cart.value)
   const isSideOpen = useAppSelector(state => state.isSideOpen.value)
   const dispatch = useAppDispatch()
@@ -29,11 +32,10 @@ function Header() {
   /* 카테고리 설정 */
   const toCategory = (currentCategory:string) => {
     // navigate('/')
-    // if (category === currentCategory) return
+    if (category === currentCategory) return
 
-    // setCategory(currentCategory)
-    // setLoading('block')
-    console.log(currentCategory)
+    dispatch(setCategory(currentCategory))
+    dispatch(setLoading('block'))
   }
 
   /* 검색창 뷰 state */
