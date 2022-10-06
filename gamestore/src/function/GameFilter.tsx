@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react"
+import { TTag } from "../redux/interface/gameInterface"
 
 interface IProps {
   setIsFilter: React.Dispatch<React.SetStateAction<string[] | boolean>>,
   setIsTagListOn: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-type tagType = {
-  [key: string]: boolean,
-}
-
 /* 게임 필터 */
 const GameFilter = (props: IProps) => {
   const { setIsFilter, setIsTagListOn } = props
   const gameTag: string[] = ["오픈월드", "멀티플레이", "협동", "액션", "공포", "좀비", "어드벤처", "스포츠", "리듬", "인디", "MMORPG", "FPS"]
-  const [checkedTag, setCheckedTag] = useState<tagType>({ "오픈월드": false, "멀티플레이": false, "협동": false, "액션": false, "공포": false, "좀비": false, "어드벤처": false, "스포츠": false, "리듬": false, "인디": false, "MMORPG": false, "FPS": false })
+  const [checkedTag, setCheckedTag] = useState<TTag>({ "오픈월드": false, "멀티플레이": false, "협동": false, "액션": false, "공포": false, "좀비": false, "어드벤처": false, "스포츠": false, "리듬": false, "인디": false, "MMORPG": false, "FPS": false })
 
   /* 필터 값 가져오기 */
   const updateFilter = () => {
     const tempTag: string[] = ["오픈월드", "멀티플레이", "협동", "액션", "공포", "좀비", "어드벤처", "스포츠", "리듬", "인디", "MMORPG", "FPS"]
-    let temp: tagType = {}
+    let temp: TTag = {}
     for (let i = 0; i < tempTag.length; i++) {
       temp[tempTag[i]] = (document?.getElementById(tempTag[i]) as HTMLInputElement)?.checked
     }
@@ -34,7 +31,7 @@ const GameFilter = (props: IProps) => {
     const checkbox: HTMLInputElement = document.getElementById(id) as HTMLInputElement
     checkbox.checked = !checkbox?.checked
     setCheckedTag((current) => {
-      let temp: tagType = { ...current }
+      let temp: TTag = { ...current }
       temp[id] = checkbox.checked
       return temp
     })

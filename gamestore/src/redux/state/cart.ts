@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
 
 // Define a type for the slice state
@@ -16,17 +16,13 @@ export const cartSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    increment: state => {
-      state.value += 1
-    },
-    decrement: state => {
-      if(state.value < 1) return
-      state.value -= 1
+    setCart: (state, action: PayloadAction<number>) => {
+      state.value = action.payload
     }
   }
 })
 
-export const { increment, decrement } = cartSlice.actions
+export const { setCart } = cartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const cart = (state: RootState) => state.cart.value

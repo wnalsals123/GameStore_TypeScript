@@ -16,13 +16,13 @@ export const isSideOpenSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setisSideOpen: (state, action: PayloadAction<boolean>) => {
+    setIsSideOpen: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload
     }
   }
 })
 
-export const { setisSideOpen } = isSideOpenSlice.actions
+export const { setIsSideOpen } = isSideOpenSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const isSideOpen = (state: RootState) => state.isSideOpen.value

@@ -16,13 +16,13 @@ export const isAddCartSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setisAddCart: (state, action: PayloadAction<boolean>) => {
+    setIsAddCart: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload
     }
   }
 })
 
-export const { setisAddCart } = isAddCartSlice.actions
+export const { setIsAddCart } = isAddCartSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const isAddCart = (state: RootState) => state.isAddCart.value

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 /* 페이지 이동 시 스크롤 이동 */
-function useMoveScrool() {
+function useMoveScrool(): [React.MutableRefObject<HTMLDivElement | null>, () => void] {
   const element = useRef<null | HTMLDivElement>(null);
   const onMoveToElement = () => {
     element.current?.scrollIntoView();

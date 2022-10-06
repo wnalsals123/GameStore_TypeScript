@@ -16,13 +16,13 @@ export const isLoginSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setisLogin: (state, action: PayloadAction<boolean>) => {
+    setIsLogin: (state, action: PayloadAction<boolean>) => {
       state.value = action.payload
     }
   }
 })
 
-export const { setisLogin } = isLoginSlice.actions
+export const { setIsLogin } = isLoginSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const isLogin = (state: RootState) => state.isLogin.value
