@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { TTag } from "../redux/interface/gameInterface"
+import { TTag } from "../interface/gameInterface"
 
 interface IProps {
   setIsFilter: React.Dispatch<React.SetStateAction<string[] | boolean>>,

@@ -10,7 +10,7 @@ export interface IGame {
   신작: boolean;
   출시일: number;
   태그 : TTag,
-  리뷰 : IGame리뷰[] | []
+  리뷰 : IGame리뷰[]
 }
 
 export type TTag = {

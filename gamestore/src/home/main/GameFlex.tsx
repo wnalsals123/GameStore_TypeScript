@@ -10,9 +10,6 @@ import React, { useEffect, useState } from 'react'
 import useMoveScrool from '../../function/MoveScrool'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { setLoading } from '../../redux/state/loading'
-// import { setCart } from '../../redux/state/cart'
-// import { setIsAddCart } from '../../redux/state/isAddCart'
-import { IGame } from '../../redux/interface/gameInterface'
 
 const GameFlex = () => {
   const category = useAppSelector(state => state.category.value)
@@ -35,34 +32,6 @@ const GameFlex = () => {
     return () => { clearTimeout(timer) }
   }, [category, dispatch])
 
-  /* 장바구니에 추가*/
-  const addCart = (selectedItem: IGame) => {
-    // const isUserCart = localStorage.getItem("UserCart") !== null
-
-    // if (isUserCart) {
-    //   const userCart = JSON.parse(localStorage.getItem("UserCart"))
-    //   const alreadyCart = userCart.filter((item) => (item.게임명 === selectedItem.게임명)).length > 0
-
-    //   if (alreadyCart) {
-    //     alert("이미 장바구니에 있습니다!")
-    //     return
-    //   }
-
-    //   const temp = userCart.concat(selectedItem)
-
-    //   localStorage.setItem("UserCart", JSON.stringify(temp))
-    //   dispatch(setCart(temp.length))
-    //   dispatch(setIsAddCart(true))
-    // } else {
-    //   const temp = []
-    //   localStorage.setItem("UserCart", JSON.stringify(temp.concat(selectedItem)))
-
-    //   dispatch(setCart(1))
-    //   dispatch(setIsAddCart(true))
-    // }
-    console.log(selectedItem)
-  }
-
   return (
     <div className='relative flex justify-center pb-5'>
       <div className='hidden'>
@@ -77,7 +46,7 @@ const GameFlex = () => {
         <div className='relative w-full text-white max-w-screen-2xl 3xl:ml-80'>
           <GameFlexBanner></GameFlexBanner>
           <GameFlexHeader setSortState={setSortState} isFilter={isFilter} setIsFilter={setIsFilter} scroolRef={scroolRef}></GameFlexHeader>
-          <GameFlexBox addCart={addCart} isFilter={isFilter} sortState={sortState} setTotalPage={setTotalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}></GameFlexBox>
+          <GameFlexBox isFilter={isFilter} sortState={sortState} setTotalPage={setTotalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}></GameFlexBox>
           <GameFlexPagination totalPage={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} onMoveToElement={onMoveToElement}></GameFlexPagination>
           <GameFlexFooter></GameFlexFooter>
         </div>

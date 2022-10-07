@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-import GameList from "../../json/GameList.json"
-import { IGame } from "../../redux/interface/gameInterface";
+import { IGame } from "../../interface/gameInterface";
+import { addCart, toDetail } from "../../function/PageFunction";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 interface IProps {
-  addCart: (selectedItem: IGame) => void,
   isFilter: boolean | string[],
   sortState: string,
   setTotalPage: React.Dispatch<React.SetStateAction<number>>,
@@ -15,25 +15,21 @@ interface IProps {
 
 /* 게임 목록 박스 */
 const GameFlexBox = (props: IProps) => {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const dispatch = useDispatch()
+  const gameData = useAppSelector(state => state.gameData.value)
   const category = useAppSelector(state => state.category.value)
   const loading = useAppSelector(state => state.loading.value)
-  const { addCart, isFilter, sortState, setTotalPage, currentPage, setCurrentPage } = props
+  const { isFilter, sortState, setTotalPage, currentPage, setCurrentPage } = props
   // const navigate = useNavigate()
   const [gameDataView, setGameDataView] = useState<IGame[]>([])
   const [sliceArray, setSliceArray] = useState<boolean | IGame[][]>(false)
 
-  /* 상세보기 이동 함수 */
-  const toDetail = (item: IGame) => {
-    // document.body.style.overflow = 'hidden'
-    // sessionStorage.setItem('FirstPage', false)
-    // navigate(`/games/${item.게임명}`);
-    console.log(item)
-  }
-
   /* 해당 게임 목록 불러오기 */
   useEffect(() => {
-    const gameData: IGame[] = JSON.parse(JSON.stringify(GameList))
-    let filterGameData = category === 'home' ? gameData : category === 'sales' ? gameData.filter((item) => (item.할인 !== 0)) : category === 'new' ? gameData.filter((item) => (item.신작 === true)) : gameData
+    const selectFilterGameData = category === 'home' ? gameData : category === 'sales' ? gameData.filter((item) => (item.할인 !== 0)) : category === 'new' ? gameData.filter((item) => (item.신작 === true)) : gameData
+    let filterGameData = [...selectFilterGameData]
 
     /* 게임 데이터 불러오기 실패 시 로컬 데이터 사용 */
     if (filterGameData === null) return
@@ -79,7 +75,7 @@ const GameFlexBox = (props: IProps) => {
       setTotalPage(1)
       setSliceArray(false)
     }
-  }, [category, sortState, isFilter, setTotalPage, setCurrentPage])
+  }, [gameData, category, sortState, isFilter, setTotalPage, setCurrentPage])
 
   return (
     <div className='relative flex flex-wrap text-sm text-center sm:text-base lg:text-lg'>
@@ -102,8 +98,8 @@ const GameFlexBox = (props: IProps) => {
             </div>
           </div>
           <div className='absolute top-0 left-0 flex-col items-center justify-center hidden w-full h-full group-focus:flex rounded-xl bg-neutral-100 bg-opacity-70'>
-            <button className='px-5 py-2 mb-10 bg-sky-500 rounded-xl' onMouseDown={() => { toDetail(item) }}>상세보기</button>
-            <button className='px-5 py-2 bg-sky-500 rounded-xl' onMouseDown={() => { addCart(item) }}>장바구니</button>
+            <button className='px-5 py-2 mb-10 bg-sky-500 rounded-xl' onMouseDown={() => { toDetail(navigate, location, item) }}>상세보기</button>
+            <button className='px-5 py-2 bg-sky-500 rounded-xl' onMouseDown={() => { addCart(dispatch, item) }}>장바구니</button>
           </div>
           <div className={`${loading} absolute top-0 left-0 flex items-center justify-center w-full h-full rounded-lg bg-neutral-900 animate-loadingGame`}>
             <svg className="w-1/2 text-white h-1/2 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

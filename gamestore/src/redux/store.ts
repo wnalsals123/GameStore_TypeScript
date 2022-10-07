@@ -5,6 +5,7 @@ import isAddCartSlice from './state/isAddCart'
 import isLoginSlice from './state/isLogin'
 import categorySlice from './state/category'
 import loadingSlice from './state/loading'
+import gameDataSlice from './state/gameData'
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     isAddCart: isAddCartSlice,
     isLogin: isLoginSlice,
     category: categorySlice,
-    loading: loadingSlice
+    loading: loadingSlice,
+    gameData: gameDataSlice
   }
 })
 

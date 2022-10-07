@@ -1,33 +1,21 @@
 // import AutoCompleteSearch from "../../function/AutoCompleteSearch";
 // import Dropdown from "../../function/DropDown";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setCategory } from "../../redux/state/category";
 import { setIsSideOpen } from "../../redux/state/isSideOpen";
 import { setLoading } from "../../redux/state/loading";
+import { toCart, toMyPage } from "../../function/PageFunction";
 
 function Header() {
+  const isLogin = useAppSelector(state => state.isLogin.value)
   const category = useAppSelector(state => state.category.value)
   const cartCount = useAppSelector(state => state.cart.value)
   const isSideOpen = useAppSelector(state => state.isSideOpen.value)
   const dispatch = useAppDispatch()
-  // const navigate = useNavigate()
-  // const location = useLocation()
-
-  /* 장바구니로 이동 */
-  const toCart = () => {
-    // document.body.style.overflow = 'hidden'
-    // sessionStorage.setItem('FirstPage', false)
-    // navigate(`/cart${location.search}`)
-  }
-
-  /* 마이페이지로 이동 */
-  const toMyPage = () => {
-    // document.body.style.overflow = 'hidden'
-    // sessionStorage.setItem('FirstPage', false)
-    // isLogin ? navigate(`/mypage${location.search}`) : navigate(`/login${location.search}`)
-  }
+  const navigate = useNavigate()
+  const location = useLocation()
 
   /* 카테고리 설정 */
   const toCategory = (currentCategory:string) => {
@@ -72,11 +60,11 @@ function Header() {
         <div className="absolute top-0 right-0 h-full">
           <div className="flex items-center h-full">
             <button className="inline-block align-middle bg-no-repeat bg-cover md:hidden w-7 h-7 bg-search-btn" onClick={() => { setSearchVis(!searchVis) }}></button>
-            <button className="relative hidden ml-6 md:inline-block" onClick={() => { toCart() }}>
+            <button className="relative hidden ml-6 md:inline-block" onClick={() => { toCart(navigate, location) }}>
               <img className="w-8 sm:w-9 md:w-10" src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="cart"></img>
               {cartCount !== 0 && <span className='absolute h-4 px-1 text-sm leading-none text-white rounded-full -top-2 -right-1 bg-sky-500'>{cartCount}</span>}
             </button>
-            <button className="hidden ml-6 md:inline-block" onClick={() => { toMyPage() }}>
+            <button className="hidden ml-6 md:inline-block" onClick={() => { toMyPage(navigate, location, isLogin) }}>
               <img className="w-9 md:w-10" src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="user"></img>
             </button>
           </div>

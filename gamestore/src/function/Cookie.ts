@@ -4,7 +4,7 @@ import { CookieSetOptions } from 'universal-cookie'
 const cookies = new Cookies()
 
 /* 쿠키 설정 */
-export const setCookie = (name: string, value: any, options: CookieSetOptions | undefined)=>{
+export const setCookie = (name: string, value: any, options?: CookieSetOptions)=>{
 	return cookies.set(name, value, {...options})
 }
 
