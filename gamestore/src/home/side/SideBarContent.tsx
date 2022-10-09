@@ -59,7 +59,7 @@ const SideBarContent = () => {
     if (window.confirm(message)) {
       localStorage.removeItem("LoginInfo")
       removeCookie("LoginSession")
-      setIsLogin(false)
+      dispatch(setIsLogin(false))
     } else {
       console.log("취소")
     }

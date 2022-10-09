@@ -11,6 +11,8 @@ import NotFound from './page/404/NotFound';
 import NotFoundGame from './page/404/NotFoundGame';
 import ItemDetail from './page/ItemDetail';
 import Cart from './page/Cart';
+import Login from './page/Login';
+import SignUp from './page/SignUp';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,8 +25,8 @@ root.render(
           <Routes>
             <Route path="/" element={<App />}>
               <Route path="games/:gameid" element={<ItemDetail />}></Route>
-              {/* <Route path="login" element={<Login />}></Route> */}
-              {/* <Route path="signup" element={<SignUp />}></Route> */}
+              <Route path="login" element={<Login />}></Route>
+              <Route path="signup" element={<SignUp />}></Route>
               <Route path="cart" element={<Cart />}></Route>
               {/* <Route path="mypage" element={<MyPage />}></Route> */}
               {/* <Route path="payment" element={<Payment />}></Route> */}

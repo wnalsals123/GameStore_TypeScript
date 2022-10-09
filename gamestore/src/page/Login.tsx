@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { setCookie } from "../function/Cookie";
+import { toBack, toSignUp } from "../function/PageFunction";
 import { IUser } from "../interface/userInterface";
 import { useAppSelector } from "../redux/hooks";
 import { setIsLogin } from "../redux/state/isLogin";
@@ -10,6 +11,7 @@ const Login = () => {
   const isLogin = useAppSelector(state => state.isLogin.value)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const location = useLocation()
   const userData = JSON.parse(localStorage.getItem('UserData') as string)
 
   /* 로그인 요청 */
@@ -46,7 +48,7 @@ const Login = () => {
   }
 
   /* 로그인 엔터키 리스너 */
-  const enterLogin = (e: KeyboardEvent) => {
+  const enterLogin = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') toLogin()
   }
 
@@ -64,13 +66,13 @@ const Login = () => {
                     <img className="w-10 md:w-12 filter-white" src="https://cdn-icons-png.flaticon.com/512/686/686589.png" alt="logo"></img>
                     <span className="pl-4 leading-none">Game Store</span>
                   </div>
-                  <button className="w-6 h-6 bg-no-repeat bg-cover sm:w-7 sm:h-7 bg-close-btn filter-white" onClick={toBack}></button>
+                  <button className="w-6 h-6 bg-no-repeat bg-cover sm:w-7 sm:h-7 bg-close-btn filter-white" onClick={() => {toBack(navigate)}}></button>
                 </div>
 
                 <input className="p-3 m-5 mb-0 text-black rounded-md" onKeyUp={enterLogin} placeholder="아이디" id='id' autoComplete="off"></input>
                 <input className="p-3 m-5 mb-0 text-base text-black rounded-md sm:text-2xl" onKeyUp={enterLogin} type="password" placeholder="비밀번호" id='password' autoComplete="off"></input>
                 <button className="p-2 m-5 mb-0 rounded-md bg-sky-500" onClick={toLogin}>로그인</button>
-                <button className="p-2 m-5 bg-red-500 rounded-md" onClick={toSignUp}>회원가입</button>
+                <button className="p-2 m-5 bg-red-500 rounded-md" onClick={() => {toSignUp(navigate, location)}}>회원가입</button>
 
               </div>
 

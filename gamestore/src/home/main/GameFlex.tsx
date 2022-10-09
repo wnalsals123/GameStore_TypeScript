@@ -4,9 +4,9 @@ import GameFlexBox from './GameFlexBox'
 import GameFlexPagination from './GameFlexPagination'
 import GameFlexFooter from './GameFlexFooter'
 import SideBarContent from '../side/SideBarContent'
-// import SearchResult from '../../function/SearchResult'
+import SearchResult from '../../function/SearchResult'
 import React, { useEffect, useState } from 'react'
-// import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import useMoveScrool from '../../function/MoveScrool'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { setLoading } from '../../redux/state/loading'
@@ -14,9 +14,9 @@ import { setLoading } from '../../redux/state/loading'
 const GameFlex = () => {
   const category = useAppSelector(state => state.category.value)
   const dispatch = useAppDispatch()
-  // const location = useLocation()
-  // const searchParams = new URLSearchParams(location.search);
-  const keyword = null //searchParams.get('keyword')
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search);
+  const keyword: string | null = searchParams.get('keyword')
   const gameTag: string[] = ["오픈월드", "멀티플레이", "협동", "액션", "공포", "좀비", "어드벤처", "스포츠", "리듬", "인디", "MMORPG", "FPS"]
   const [sortState, setSortState] = useState<string>('sortAbc')
   const [isFilter, setIsFilter] = useState<string[] | boolean>(false)
@@ -52,7 +52,7 @@ const GameFlex = () => {
         </div>
       }
 
-      {/* {keyword !== null && <SearchResult gameData={gameData} keyword={keyword} addCart={addCart}></SearchResult>} */}
+      {keyword !== null && <SearchResult keyword={keyword}></SearchResult>}
     </div>
   )
 }

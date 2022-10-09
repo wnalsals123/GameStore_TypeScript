@@ -1,5 +1,5 @@
-// import AutoCompleteSearch from "../../function/AutoCompleteSearch";
-// import Dropdown from "../../function/DropDown";
+import AutoCompleteSearch from "../../function/AutoCompleteSearch";
+import Dropdown from "../../function/DropDown";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -54,7 +54,7 @@ function Header() {
         </div>
 
         <div className="w-[16rem] h-10 ml-5 align-middle hidden lg:inline-block">
-          {/* <AutoCompleteSearch setSearchVis={setSearchVis}></AutoCompleteSearch> */}
+          <AutoCompleteSearch setSearchVis={setSearchVis}></AutoCompleteSearch>
         </div>
 
         <div className="absolute top-0 right-0 h-full">
@@ -70,7 +70,7 @@ function Header() {
           </div>
         </div>
 
-        {/* <Dropdown visble={searchVis}>
+        <Dropdown visble={searchVis}>
           <div className="fixed top-[3.75rem] md:top-[5rem] left-0 w-screen lg:hidden">
             <div className="flex items-center justify-center bg-opacity-70 bg-neutral-500">
               <div className="w-[16rem] h-10">
@@ -78,7 +78,7 @@ function Header() {
               </div>
             </div>
           </div>
-        </Dropdown> */}
+        </Dropdown>
 
       </div>
 
