@@ -10,6 +10,7 @@ import { setIsLogin } from "../redux/state/isLogin";
 import { setCart } from "../redux/state/cart";
 import { setGameData } from "../redux/state/gameData";
 import { Outlet, useLocation } from 'react-router-dom';
+import PopDown from "../function/PopDown";
 
 function App() {
   const location = useLocation()
@@ -81,7 +82,7 @@ function App() {
     </div>
     <GameFlex></GameFlex>
     <Outlet></Outlet>
-    {/* <PopDown></PopDown> */}
+    <PopDown></PopDown>
   </div>
   );
 }

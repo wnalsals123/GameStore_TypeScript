@@ -22,8 +22,8 @@ const Cart = () => {
   }, [])
 
   /* 장바구니 게임 삭제 */
-  const deleteCart = (gameID: number) => {
-    const temp: IGame[] = userCart.filter((item) => (item.gameID !== gameID))
+  const deleteCart = (gameName: string) => {
+    const temp: IGame[] = userCart.filter((item) => (item.게임명 !== gameName))
     dispatch(setCart(temp.length))
     setUserCart(temp)
     localStorage.setItem("UserCart", JSON.stringify(temp))
@@ -38,7 +38,7 @@ const Cart = () => {
 
           <div className="flex justify-between">
             <span>{item.게임명}</span>
-            <button onClick={() => { deleteCart(item.gameID) }}>&times;</button>
+            <button onClick={() => { deleteCart(item.게임명) }}>&times;</button>
           </div>
 
           <div className="flex flex-col flex-wrap justify-between sm:flex-row">
