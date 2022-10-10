@@ -63,6 +63,7 @@ const AutoCompleteSearch = (props: IProps) => {
           setSearchVis(false)
           navigate(`/?keyword=${(event.target as HTMLInputElement).value}`)
         }
+        setIsHaveInputValue(false)
       }
     }
   }
