@@ -59,15 +59,20 @@
     "좋아요": []
   },
   {
-    "username": "temp",
-    "password": "temp",
-    "passwordOk": "temp",
-    "email": "temp",
-    "nickname": "temp",
-    "exp": 0,
-    "point": 0,
+    "username": "jhj",
+    "password": "jhj",
+    "passwordOk": "jhj",
+    "email": "jhj@jhj.com",
+    "nickname": "로그라이크소울",
+    "exp": 1224,
+    "point": 1224,
     "구매": [],
-    "리뷰": [],
+    "리뷰": [
+      {
+        "게임명": "다크 소울 3",
+        "commentId": "commentTestId-JHJ"
+      }
+    ],
     "쿠폰": [],
     "좋아요": []
   }

@@ -4,6 +4,7 @@ import { IGame } from "../../interface/gameInterface";
 import { addCart, toDetail } from "../../function/PageFunction";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { setLoading } from "../../redux/state/loading";
 
 interface IProps {
   isFilter: boolean | string[],
@@ -25,6 +26,14 @@ const GameFlexBox = (props: IProps) => {
   // const navigate = useNavigate()
   const [gameDataView, setGameDataView] = useState<IGame[]>([])
   const [sliceArray, setSliceArray] = useState<boolean | IGame[][]>(false)
+
+  /* 게임 데이터 로딩 애니메이션 */
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | number = 0
+    timer = setTimeout(() => { dispatch(setLoading('hidden')) }, 590);
+
+    return () => { clearTimeout(timer) }
+  }, [category, currentPage, dispatch])
 
   /* 해당 게임 목록 불러오기 */
   useEffect(() => {

@@ -3,6 +3,8 @@ import { Location, NavigateFunction } from "react-router-dom"
 import { IGame } from "../interface/gameInterface"
 import { setCart } from "../redux/state/cart"
 import { setIsAddCart } from "../redux/state/isAddCart"
+import { setIsLogin } from "../redux/state/isLogin"
+import { removeCookie } from "./Cookie"
 
 /* 장바구니에 추가*/
 export const addCart = (dispatch: Dispatch<AnyAction>, selectedItem: IGame) => {
@@ -32,10 +34,10 @@ export const addCart = (dispatch: Dispatch<AnyAction>, selectedItem: IGame) => {
 }
 
 /* 상세보기 이동 */
-export const toDetail = (navigate: NavigateFunction, location: Location, item: IGame) => {
+export const toDetail = (navigate: NavigateFunction, location: Location, item: string | IGame) => {
   document.body.style.overflow = 'hidden'
   sessionStorage.removeItem('FirstPage')
-  navigate(`/games/${item.게임명}/${location.search}`);
+  navigate(`/games/${typeof item === 'string' ? item : item.게임명}/${location.search}`);
 }
 
 /* 로그인으로 이동 */
@@ -70,4 +72,18 @@ export const toCart = (navigate: NavigateFunction, location: Location) => {
 export const toBack = (navigate: NavigateFunction) => {
   document.body.style.overflow = 'auto'
   JSON.parse((sessionStorage.getItem('FirstPage') as string)) ? navigate('/') : navigate(-1);
+}
+
+/* 로그아웃 */
+export const toLogout = (navigate: NavigateFunction, dispatch: Dispatch<AnyAction>) => {
+  const message = "정말로 로그아웃하시겠습니까?"
+
+  if (window.confirm(message)) {
+    localStorage.removeItem("LoginInfo")
+    removeCookie("LoginSession")
+    dispatch(setIsLogin(false))
+    navigate('/')
+  } else {
+    console.log("취소")
+  }
 }

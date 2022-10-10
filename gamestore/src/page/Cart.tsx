@@ -74,18 +74,18 @@ const Cart = () => {
   const toPayment = () => {
     if (!isLogin) {
       alert("로그인이 필요합니다!")
-      navigate('/login')
+      navigate(`/login${location.search}`)
       return
     }
 
-    navigate('/payment', {
+    navigate(`/payment${location.search}`, {
       state: {
         loginInfo: localStorage.getItem("LoginInfo"),
         paymentItem: userCart,
         totalAmount: getTotal(),
       }
     })
-    setCookie("PaymentSession", true, { maxAge: 0 })
+    setCookie("PaymentSession", true)
   }
 
   return (

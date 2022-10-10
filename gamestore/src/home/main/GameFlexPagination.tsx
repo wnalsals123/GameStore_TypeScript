@@ -1,3 +1,6 @@
+import { useAppDispatch } from "../../redux/hooks"
+import { setLoading } from "../../redux/state/loading"
+
 interface IProps {
   totalPage: number,
   currentPage: number,
@@ -8,11 +11,20 @@ interface IProps {
 /* 게임 목록 페이지네이션 */
 const GameFlexPagination = (props: IProps) => {
   const { totalPage, currentPage, setCurrentPage, onMoveToElement } = props
+  const dispatch = useAppDispatch()
+
+  // 클릭 페이지
+  const pageClick = (page: number) => {
+    onMoveToElement()
+    dispatch(setLoading('block'))
+    setCurrentPage(page)
+  }
 
   // 이전 페이지
   const pageDown = () => {
     if(currentPage === 1) return
     onMoveToElement()
+    dispatch(setLoading('block'))
     setCurrentPage(currentPage - 1)
   }
 
@@ -20,6 +32,7 @@ const GameFlexPagination = (props: IProps) => {
   const pageUp = () => {
     if(currentPage === totalPage) return
     onMoveToElement()
+    dispatch(setLoading('block'))
     setCurrentPage(currentPage + 1)
   }
 
@@ -31,7 +44,7 @@ const GameFlexPagination = (props: IProps) => {
         </button>
 
         {Array(totalPage).fill(0).map((_, i) => (
-          <button className={`block !leading-none text-xl xsm:text-3xl ${currentPage === i + 1 ? 'text-sky-500' : 'text-white'}`} key={i + 1} onClick={() => { onMoveToElement(); setCurrentPage(i + 1) }} disabled={currentPage === i + 1}>{i + 1}</button>
+          <button className={`block !leading-none text-xl xsm:text-3xl ${currentPage === i + 1 ? 'text-sky-500' : 'text-white'}`} key={i + 1} onClick={() => { pageClick(i + 1) }} disabled={currentPage === i + 1}>{i + 1}</button>
         ))}
 
         <button onClick={pageUp} disabled={currentPage === totalPage}>

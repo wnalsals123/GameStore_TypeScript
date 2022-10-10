@@ -13,6 +13,8 @@ import ItemDetail from './page/ItemDetail';
 import Cart from './page/Cart';
 import Login from './page/Login';
 import SignUp from './page/SignUp';
+import MyPage from './page/MyPage';
+import Payment from './page/Payment';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -28,8 +30,8 @@ root.render(
               <Route path="login" element={<Login />}></Route>
               <Route path="signup" element={<SignUp />}></Route>
               <Route path="cart" element={<Cart />}></Route>
-              {/* <Route path="mypage" element={<MyPage />}></Route> */}
-              {/* <Route path="payment" element={<Payment />}></Route> */}
+              <Route path="mypage" element={<MyPage />}></Route>
+              <Route path="payment" element={<Payment />}></Route>
             </Route>
             <Route path="/*" element={<NotFound />}></Route>
             <Route path="/NotFound" element={<NotFound />}></Route>

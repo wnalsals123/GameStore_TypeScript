@@ -5,15 +5,11 @@ import GameFlexPagination from './GameFlexPagination'
 import GameFlexFooter from './GameFlexFooter'
 import SideBarContent from '../side/SideBarContent'
 import SearchResult from '../../function/SearchResult'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import useMoveScrool from '../../function/MoveScrool'
-import { useAppDispatch, useAppSelector } from '../../redux/hooks'
-import { setLoading } from '../../redux/state/loading'
 
 const GameFlex = () => {
-  const category = useAppSelector(state => state.category.value)
-  const dispatch = useAppDispatch()
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search);
   const keyword: string | null = searchParams.get('keyword')
@@ -23,14 +19,6 @@ const GameFlex = () => {
   const [totalPage, setTotalPage] = useState<number>(5)
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [scroolRef, onMoveToElement] = useMoveScrool()
-
-  /* 게임 데이터 로딩 애니메이션 */
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout> | number = 0
-    timer = setTimeout(() => { dispatch(setLoading('hidden')) }, 590);
-
-    return () => { clearTimeout(timer) }
-  }, [category, dispatch])
 
   return (
     <div className='relative flex justify-center pb-5'>
