@@ -15,7 +15,7 @@ import PopDown from "../function/PopDown";
 function App() {
   const location = useLocation()
   const dispatch = useAppDispatch()
-  const version = 'v1'
+  const version = '1.0'
 
    /* 사이트 연결 설정 */
    useEffect(() => {

@@ -21,9 +21,9 @@
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/DropDown.tsx">*\DropDown.tsx*</a> : 드롭다운 설정
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/GameFilter.tsx">*\GameFilter.tsx*</a> : 게임필터 설정
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/MoveScrool.tsx">*\MoveScrool.tsx*</a> : 스크롤 이동 훅
-* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/PageFunction.ts">*\PageFunction.ts*</a> : 페이지 이동 및 장바구니 추가
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/PageFunction.ts">*\PageFunction.ts*</a> : 페이지 기능 함수 모음
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/PopDown.tsx">*\PopDown.tsx*</a> : 장바구니 담기 애니메이션
-* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/SearchResult.tsx">*\SearchResult.tsx*</a> : 검색결과 반환
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/SearchResult.tsx">*\SearchResult.tsx*</a> : 검색결과 출력
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/SpanTextHighlight.tsx">*\SpanTextHighlight.tsx*</a> : 글자색 강조
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/function/StringMatcher.ts">*\StringMatcher.ts*</a> : 한글 패턴 정규식
 
@@ -42,15 +42,10 @@
   * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/home/side/SideBar.tsx">*\SideBar.tsx*</a> : 사이드바 상태 관리
   * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/home/side/SideBarContent.tsx">*\SideBarContent.tsx*</a> : 회원정보, 로그인, 회원가입, 장바구니 표시
 
-#### gamestore\src\json - 사이트 DB
-* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/CouponList.json">*\CouponList.json*</a> : 쿠폰데이터
-* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/GameList.json">*\GameList.json*</a> : 게임데이터
-* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/UserData.json">*\UserData.json*</a> : 유저데이터
-
 #### gamestore\src\page - 서브 페이지
 * \404
   * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/404/NotFound.tsx">*\NotFound.tsx*</a> : 잘못된 페이지
-  * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/404/NotFoundGame.tsx">*\NotFoundGame.tsx*</a> : 존재하지 않는 게임
+  * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/404/NotFoundGame.tsx">*\NotFoundGame.tsx*</a> : 잘못된 게임 페이지
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/Cart.tsx">*\Cart.tsx*</a> : 장바구니 페이지
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/ItemDetail.tsx">*\ItemDetail.tsx*</a> : 게임 상세보기 페이지
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/Login.tsx">*\Login.tsx*</a> : 로그인 페이지
@@ -58,7 +53,16 @@
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/Payment.tsx">*\Payment.tsx*</a> : 결제 페이지
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/page/SignUp.tsx">*\SignUp.tsx*</a> : 회원가입 페이지
 
-#### gamestore\src\json - 리덕스 상태 관리
+#### gamestore\src\interface - 인터페이스 관리
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/interface/gameInterface.ts">*\gameInterface.ts*</a> : 게임 인터페이스
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/interface/userInterface.ts">*\userInterface.ts*</a> : 유저 인터페이스
+
+#### gamestore\src\json - 사이트 DB
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/CouponList.json">*\CouponList.json*</a> : 쿠폰 데이터
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/GameList.json">*\GameList.json*</a> : 게임 데이터
+* <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/json/UserData.json">*\UserData.json*</a> : 유저 데이터
+
+#### gamestore\src\redux - 리덕스 상태 관리
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/redux/store.ts">*\store.ts*</a> : 상태 스토어
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/blob/main/gamestore/src/redux/hooks.ts">*\hooks.ts*</a> : 타입 지정 훅
 * <a href="https://github.com/wnalsals123/GameStore_TypeScript/tree/main/gamestore/src/redux/state">*\state*</a> : 각 state 액션 및 리듀서 설정(@reduxjs/toolkit)
