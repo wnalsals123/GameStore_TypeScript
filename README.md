@@ -88,5 +88,5 @@
 #### 6. 마이 페이지 - <a href="https://jmj-gamestore-ts.netlify.app/mypage">Link </a>**로그인 필요(ID: test/PW: test)*
 * 내 정보, 구매 내역, 리뷰 관리, 쿠폰함 및 쿠폰 등록
 
-#### 7. 결제 페이지 - <a href="https://jmj-gamestore-ts.netlify.app/payment">Link </a>**로그인 필요(ID: test/PW: test)*
+#### 7. 결제 페이지 - <a href="https://jmj-gamestore-ts.netlify.app/payment">Link </a>**장바구니에서 접근가능*
 * 장바구니에서 결제정보 획득, 완료 후 유저 데이터 갱신, 잘못된 접근 시 리디렉션
